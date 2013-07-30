@@ -1,1 +1,1 @@
-{    "run_list": [        "recipe[apache]"    ]}
+{    "run_list": [        "recipe[apache]",        "recipe[php]"    ]}

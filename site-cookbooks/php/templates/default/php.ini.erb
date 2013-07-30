@@ -259,7 +259,7 @@ y2k_compliance = On
 ; Development Value: 4096
 ; Production Value: 4096
 ; http://php.net/output-buffering
-output_buffering = 4096
+output_buffering = <%= node['php']['output_buffering'] %>
 
 ; You can redirect all of the output of your scripts to a function.  For
 ; example, if you set output_handler to "mb_output_handler", character
@@ -274,7 +274,7 @@ output_buffering = 4096
 ; Note: output_handler must be empty if this is set 'On' !!!!
 ;   Instead you must use zlib.output_handler.
 ; http://php.net/output-handler
-;output_handler =
+output_handler = <%= node['php']['output_handler'] %>
 
 ; Transparent output compression using the zlib library
 ; Valid values for this option are 'off', 'on', or a specific buffer size
@@ -432,7 +432,7 @@ zend.enable_gc = On
 ; threat in any way, but it makes it possible to determine whether you use PHP
 ; on your server or not.
 ; http://php.net/expose-php
-expose_php = On
+expose_php = <%= node['php']['expose_php'] %>
 
 ;;;;;;;;;;;;;;;;;;;
 ; Resource Limits ;
@@ -518,7 +518,7 @@ memory_limit = 128M
 ; Development Value: E_ALL | E_STRICT
 ; Production Value: E_ALL & ~E_DEPRECATED
 ; http://php.net/error-reporting
-error_reporting = E_ALL & ~E_DEPRECATED
+error_reporting = <%= node['php']['error_reporting'] %>
 
 ; This directive controls whether or not and where PHP will output errors,
 ; notices and warnings too. Error output is very useful during development, but
@@ -1005,7 +1005,7 @@ default_socket_timeout = 60
 [Date]
 ; Defines the default timezone used by the date functions
 ; http://php.net/date.timezone
-;date.timezone =
+date.timezone = <%= node['php']['date']['timezone'] %>
 
 ; http://php.net/date.default-latitude
 ;date.default_latitude = 31.7667
@@ -1603,14 +1603,14 @@ session.referer_check =
 
 ; How many bytes to read from the file.
 ; http://php.net/session.entropy-length
-session.entropy_length = 0
+session.entropy_length = <%= node['php']['session']['entropy_length'] %>
 
 ; Specified here to create the session id.
 ; http://php.net/session.entropy-file
 ; On systems that don't have /dev/urandom /dev/arandom can be used
 ; On windows, setting the entropy_length setting will activate the 
 ; Windows random source (using the CryptoAPI)
-;session.entropy_file = /dev/urandom
+session.entropy_file = <%= node['php']['session']['entropy_file'] %>
 
 ; Set to {nocache,private,public,} to determine HTTP caching aspects
 ; or leave this empty to avoid sending anti-caching headers.
@@ -1641,7 +1641,7 @@ session.use_trans_sid = 0
 ; the hash extension. A list of available hashes is returned by the hash_algos()
 ; function.
 ; http://php.net/session.hash-function
-session.hash_function = 0
+session.hash_function = <%= node['php']['session']['hash_function'] %>
 
 ; Define how many bits are stored in each character when converting
 ; the binary hash data to something readable.
@@ -1768,22 +1768,22 @@ mssql.secure_connection = Off
 [mbstring]
 ; language for internal character representation.
 ; http://php.net/mbstring.language
-;mbstring.language = Japanese
+mbstring.language = Japanese
 
 ; internal/script encoding.
 ; Some encoding cannot work as internal encoding.
 ; (e.g. SJIS, BIG5, ISO-2022-*)
 ; http://php.net/mbstring.internal-encoding
-;mbstring.internal_encoding = EUC-JP
+mbstring.internal_encoding = <%= node['php']['mbstring']['internal_encoding'] %>
 
 ; http input encoding.
 ; http://php.net/mbstring.http-input
-;mbstring.http_input = auto
+mbstring.http_input = <%= node['php']['mbstring']['http_input'] %>
 
 ; http output encoding. mb_output_handler must be
 ; registered as output buffer to function
 ; http://php.net/mbstring.http-output
-;mbstring.http_output = SJIS
+mbstring.http_output = <%= node['php']['mbstring']['http_output'] %>
 
 ; enable automatic encoding translation according to
 ; mbstring.internal_encoding setting. Input chars are
@@ -1791,12 +1791,12 @@ mssql.secure_connection = Off
 ; Note: Do _not_ use automatic encoding translation for
 ;       portable libs/applications.
 ; http://php.net/mbstring.encoding-translation
-;mbstring.encoding_translation = Off
+mbstring.encoding_translation = <%= node['php']['mbstring']['encoding_translation'] %>
 
 ; automatic encoding detection order.
 ; auto means
 ; http://php.net/mbstring.detect-order
-;mbstring.detect_order = auto
+mbstring.detect_order = <%= node['php']['mbstring']['detect_order'] %>
 
 ; substitute_character used when character cannot be converted
 ; one from another
