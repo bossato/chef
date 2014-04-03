@@ -1,27 +1,34 @@
 ###
-# Install Settings
-###
+## Install Settings
+####
 
-# Version
-default['apache']['version'] = "httpd-2.2.24"
+## Version
+default['apache']['version']    = "httpd-2.4.7"
 
-# Directory
-default['apache']['dir']     = "/usr/local/apache2/"
+## File
+default['apache']['file_name'] = "#{default['apache']['version']}.tar.gz"
+default['apache']['remote_uri'] = "http://ftp.meisei-u.ac.jp/mirror/apache/dist//httpd/#{default['apache']['file_name']}"
+
+## Directory
+default['apache']['dir']     = "/usr/local/apache2"
 default['apache']['src_dir'] = "/usr/local/src/"
 
-# User
+## User
 default['apache']['install_user']  = "root"
 default['apache']['install_group'] = "root"
 
-# Configure Options
+## Configure Options
 default['apache']['configure']  = "--prefix=#{default['apache']['dir']} --enable-ssl --with-ssl --enable-rewrite=shared --enable-headers=shared --enable-so --with-mpm=prefork"
 
-# Include files
+## Include files
 default['apache']['include_files']  = [
   "httpd-mpm",
   "httpd-vhosts",
   "httpd-ssl"
 ]
+
+## Include library
+include_attribute "apache::lib"
 
 
 ###
@@ -31,7 +38,7 @@ default['apache']['include_files']  = [
 # General
 default['apache']['port']            = 80
 default['apache']['port_ssl']        = 443
-default['apache']['directory_index'] = "index.php, index.html"
+default['apache']['directory_index'] = "index.php index.html"
 
 # User
 default['apache']['user']         = "www"
@@ -43,8 +50,8 @@ default['apache']['server_name']   = "locaohost"
 default['apache']['document_root'] = "/usr/local/apache2/htdocs"
 
 # Logs
-default['apache']['access_log'] = "#{default['apache']['dir']}logs/access_log"
-default['apache']['error_log']  = "#{default['apache']['dir']}logs/error_log"
+default['apache']['access_log'] = "#{default['apache']['dir']}/logs/access_log"
+default['apache']['error_log']  = "#{default['apache']['dir']}/logs/error_log"
 
 # Prefork
 default['apache']['prefork']['start_servers']         = 5

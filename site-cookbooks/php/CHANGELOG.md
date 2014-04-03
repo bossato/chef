@@ -1,10 +1,11 @@
-# CHANGELOG for php
+php CHANGELOG
+=============
 
-This file is used to list changes made in each version of php.
+This file is used to list changes made in each version of the php cookbook.
 
-## 0.1.0:
-
-* Initial release of php
+0.1.0
+-----
+- [your_name] - Initial release of php
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

@@ -1,1 +1,8 @@
-{    "run_list": [        "recipe[apache]",        "recipe[php]"    ]}
+// localhost.json
+{
+    "run_list": [
+        "recipe[apache]",
+        "recipe[mysql]",
+        "recipe[php]"
+    ]   
+}

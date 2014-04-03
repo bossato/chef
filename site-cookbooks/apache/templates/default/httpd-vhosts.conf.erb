@@ -1,22 +1,18 @@
-#
 # Virtual Hosts
 #
+# Required modules: mod_log_config
+
 # If you want to maintain multiple domains/hostnames on your
 # machine you can setup VirtualHost containers for them. Most configurations
 # use only name-based virtual hosts so the server doesn't need to worry about
 # IP addresses. This is indicated by the asterisks in the directives below.
 #
 # Please see the documentation at 
-# <URL:http://httpd.apache.org/docs/2.2/vhosts/>
+# <URL:http://httpd.apache.org/docs/2.4/vhosts/>
 # for further details before you try to setup virtual hosts.
 #
 # You may use the command line option '-S' to verify your virtual host
 # configuration.
-
-#
-# Use name-based virtual hosting.
-#
-NameVirtualHost *:<%= node['apache']['port'] %>
 
 #
 # VirtualHost example:
@@ -25,12 +21,9 @@ NameVirtualHost *:<%= node['apache']['port'] %>
 # match a ServerName or ServerAlias in any <VirtualHost> block.
 #
 <VirtualHost *:<%= node['apache']['port'] %>>
-    ServerAdmin <%= node['apache']['server_admin'] %>
+    ServerAdmin  <%= node['apache']['server_admin'] %>
     DocumentRoot "<%= node['apache']['document_root'] %>"
-    ServerName <%= node['apache']['server_name'] %>
-    ErrorLog "<%= node['apache']['error_log'] %>"
-    CustomLog "<%= node['apache']['access_log'] %>" common
+    ServerName   <%= node['apache']['server_name'] %>
+    ErrorLog     "<%= node['apache']['error_log'] %>"
+    CustomLog    "<%= node['apache']['access_log'] %>" common
 </VirtualHost>
-
-
-
