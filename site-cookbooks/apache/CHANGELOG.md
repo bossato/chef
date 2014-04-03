@@ -1,10 +1,11 @@
-# CHANGELOG for apache
+apache CHANGELOG
+================
 
-This file is used to list changes made in each version of apache.
+This file is used to list changes made in each version of the apache cookbook.
 
-## 0.1.0:
-
-* Initial release of apache
+0.1.0
+-----
+- [your_name] - Initial release of apache
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
