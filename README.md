@@ -31,14 +31,12 @@ $ ruby -v
 ruby 1.9.3p545 (2014-02-24 revision 45159) [x86_64-linux]
 ```
 
-Chefインストール
+Gemインストール
 
 ```
-$ gem install rdoc
-$ gem install chef
-$ gem install knife-solo
+$ bundle install --path vendor/bundle
 $ chef-solo -v
-Chef: 11.10.4
+Chef: xx.xx.xx
 ```
 
 knife設定
@@ -78,8 +76,8 @@ $ cat nodes/localhost.json
 // localhost.json
 {
     "run_list": [
-        //"recipe[apache]"
-        //"recipe[mysql]"
+        "recipe[apache]"
+        "recipe[mysql]"
         "recipe[php]"
     ]
 }
