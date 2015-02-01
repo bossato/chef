@@ -2,62 +2,62 @@
 
 ### general
 
-character-set-server    = <%= node['mysql']['character-set-server'] %>
-default-storage-engine  = <%= node['mysql']['default-storage-engine'] %>
+character-set-server    = <%= node['mysql']['cnf']['character-set-server'] %>
+default-storage-engine  = <%= node['mysql']['cnf']['default-storage-engine'] %>
 
 
 ### network
 
-port                 = <%= node['mysql']['port'] %>
-max_connections      = <%= node['mysql']['max_connections'] %>
-max_user_connections = <%= node['mysql']['max_user_connections'] %>
-max_connect_errors   = <%= node['mysql']['max_connect_errors'] %>
-wait_timeout         = <%= node['mysql']['wait_timeout'] %>
-interactive_timeout  = <%= node['mysql']['interactive_timeout'] %>
-connect_timeout      = <%= node['mysql']['connect_timeout'] %>
-max_allowed_packet   = <%= node['mysql']['max_allowed_packet'] %>
+port                 = <%= node['mysql']['cnf']['port'] %>
+max_connections      = <%= node['mysql']['cnf']['max_connections'] %>
+max_user_connections = <%= node['mysql']['cnf']['max_user_connections'] %>
+max_connect_errors   = <%= node['mysql']['cnf']['max_connect_errors'] %>
+wait_timeout         = <%= node['mysql']['cnf']['wait_timeout'] %>
+interactive_timeout  = <%= node['mysql']['cnf']['interactive_timeout'] %>
+connect_timeout      = <%= node['mysql']['cnf']['connect_timeout'] %>
+max_allowed_packet   = <%= node['mysql']['cnf']['max_allowed_packet'] %>
 
 
 ### log
 
-log_warnings                  = <%= node['mysql']['log_warnings'] %>
-general_log                   = <%= node['mysql']['general_log'] %>
-log-slow-admin-statements     = <%= node['mysql']['log-slow-admin-statements'] %>
-log-queries-not-using-indexes = <%= node['mysql']['log-queries-not-using-indexes'] %>
-slow_query_log                = <%= node['mysql']['slow_query_log'] %>
-long_query_time               = <%= node['mysql']['long_query_time'] %>
-slow_query_log_file           = <%= node['mysql']['slow_query_log_file'] %>
+log_warnings                  = <%= node['mysql']['cnf']['log_warnings'] %>
+general_log                   = <%= node['mysql']['cnf']['general_log'] %>
+log-slow-admin-statements     = <%= node['mysql']['cnf']['log-slow-admin-statements'] %>
+log-queries-not-using-indexes = <%= node['mysql']['cnf']['log-queries-not-using-indexes'] %>
+slow_query_log                = <%= node['mysql']['cnf']['slow_query_log'] %>
+long_query_time               = <%= node['mysql']['cnf']['long_query_time'] %>
+slow_query_log_file           = <%= node['mysql']['cnf']['slow_query_log_file'] %>
 
 
 ### memory
 
-thread_cache_size    = <%= node['mysql']['thread_cache_size'] %>
-table_open_cache     = <%= node['mysql']['table_open_cache'] %>
-max_heap_table_size  = <%= node['mysql']['max_heap_table_size'] %>
-sort_buffer_size     = <%= node['mysql']['sort_buffer_size'] %>
-read_buffer_size     = <%= node['mysql']['read_buffer_size'] %>
-read_rnd_buffer_size = <%= node['mysql']['read_rnd_buffer_size'] %>
-join_buffer_size     = <%= node['mysql']['join_buffer_size'] %>
-query_cache_size     = <%= node['mysql']['query_cache_size'] %>
-query_cache_limit    = <%= node['mysql']['query_cache_limit'] %>
+thread_cache_size    = <%= node['mysql']['cnf']['thread_cache_size'] %>
+table_open_cache     = <%= node['mysql']['cnf']['table_open_cache'] %>
+max_heap_table_size  = <%= node['mysql']['cnf']['max_heap_table_size'] %>
+sort_buffer_size     = <%= node['mysql']['cnf']['sort_buffer_size'] %>
+read_buffer_size     = <%= node['mysql']['cnf']['read_buffer_size'] %>
+read_rnd_buffer_size = <%= node['mysql']['cnf']['read_rnd_buffer_size'] %>
+join_buffer_size     = <%= node['mysql']['cnf']['join_buffer_size'] %>
+query_cache_size     = <%= node['mysql']['cnf']['query_cache_size'] %>
+query_cache_limit    = <%= node['mysql']['cnf']['query_cache_limit'] %>
 
 
 ### innodb
 
-innodb_buffer_pool_size     = <%= node['mysql']['innodb_buffer_pool_size'] %>
-innodb_autoextend_increment = <%= node['mysql']['innodb_autoextend_increment'] %>
-innodb_log_file_size        = <%= node['mysql']['innodb_log_file_size'] %>
-innodb_log_buffer_size      = <%= node['mysql']['innodb_log_buffer_size'] %>
-innodb_force_recovery       = <%= node['mysql']['innodb_force_recovery'] %>
+innodb_buffer_pool_size     = <%= node['mysql']['cnf']['innodb_buffer_pool_size'] %>
+innodb_autoextend_increment = <%= node['mysql']['cnf']['innodb_autoextend_increment'] %>
+innodb_log_file_size        = <%= node['mysql']['cnf']['innodb_log_file_size'] %>
+innodb_log_buffer_size      = <%= node['mysql']['cnf']['innodb_log_buffer_size'] %>
+innodb_force_recovery       = <%= node['mysql']['cnf']['innodb_force_recovery'] %>
 
 sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES 
 
 
 [mysql]
 
-default-character-set = <%= node['mysql']['character-set-server'] %>
+default-character-set = <%= node['mysql']['cnf']['character-set-server'] %>
 
 
 [client]
 
-default-character-set = <%= node['mysql']['character-set-server'] %>
+default-character-set = <%= node['mysql']['cnf']['character-set-server'] %>
