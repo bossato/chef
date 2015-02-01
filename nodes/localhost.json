@@ -1,8 +1,9 @@
 // localhost.json
 {
     "run_list": [
+        "recipe[mysql::default]",
+        "recipe[mysql::cnf]",
         "recipe[apache]",
-        "recipe[mysql]",
         "recipe[php]"
     ]   
 }
