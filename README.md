@@ -1,10 +1,9 @@
-chef
-============
 
-RubyとChefのインストール
---
+# chef
 
-ライブラリインストール
+## Installing Ruby, Chef
+
+### library
 
 ```
 $ yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel libffi-devel openssl-devel git vim tmux
@@ -18,7 +17,7 @@ $ whereis libyaml
 libyaml: /usr/local/lib/libyaml.la /usr/local/lib/libyaml.a /usr/local/lib/libyaml.so
 ```
 
-Ruby1.9インストール
+### Ruby
 
 ```
 $ wget http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p545.tar.gz
@@ -31,7 +30,7 @@ $ ruby -v
 ruby 1.9.3p545 (2014-02-24 revision 45159) [x86_64-linux]
 ```
 
-Gemインストール
+### Gem
 
 ```
 $ bundle install --path vendor/bundle
@@ -39,22 +38,18 @@ $ chef-solo -v
 Chef: xx.xx.xx
 ```
 
-knife設定
---
+## Setting knife
 
-knifeコマンドの初期設定を行う。
+
+### init knife
 
 ```
 $ knife configure
-// この後は基本Enterを押せばOK
 ```
 
-solo.rb作成
---
+### Making solo.rb
 
-chef-soloコマンドの設定ファイルでリポジトリ直下に作成する。各パスは適時書き換える。
-
-```
+```ruby
 $ cat solo.rb
 
 file_cache_path           "/tmp/chef-repo"
@@ -65,12 +60,9 @@ cookbook_path             [ "/root/chef-repo/site-cookbooks",
 role_path                 "/root/chef-repo/roles"
 ```
 
-nodeの変更
---
+### Settings node
 
-必要なクックブックを記述する。
-
-```
+```json
 $ cat nodes/localhost.json
 
 // localhost.json
@@ -83,14 +75,11 @@ $ cat nodes/localhost.json
 }
 ```
 
-attributesの変更
---
+### Settings attributes
 
-各クックブックのattributesを変更してミドルウェアの設定ファイルを変更する。
+EX) Set of MySQL memory size
 
-例)MySQLのメモリサイズ
-
-```
+```ruby
 $ cat site-cookbooks/mysql/attributes/default.rb | grep size
 default['mysql']['thread_cache_size']       = 0
 default['mysql']['max_heap_table_size']     = "16M"
@@ -104,13 +93,28 @@ default['mysql']['innodb_log_file_size']    = "5M"
 default['mysql']['innodb_log_buffer_size']  = "8M"
 ```
 
-chef-soloの実行
---
-
-chef-soloコマンドで指定したクックブックを実行する。
+### Exec chef-solo
 
 ```
 $ chef-solo -c solo.rb -j nodes/localhost.json
 
-// 実行ログがひたすら流れる
+// show exec log
+```
+
+## Remark
+
+### Berkshelf
+
+http://berkshelf.com/
+
+```
+$ berks cookbook cookbooks
+$ cat Berksfile
+source "https://supermarket.chef.io"
+
+cookbook 'apache'
+cookbook 'mysql'
+cookbook 'php'
+$ berks install
+$ berks update
 ```
