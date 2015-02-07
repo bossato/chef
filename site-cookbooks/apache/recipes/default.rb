@@ -64,12 +64,3 @@ bash "start apache" do
     #{node['apache']['dir']}/bin/apachectl start
   EOH
 end
-
-bash "restart apache" do
-  action :nothing
-  flags  '-ex'
-  user   node['apache']['install_user']
-  code   <<-EOH
-    #{node['apache']['dir']}/bin/apachectl restart
-  EOH
-end
