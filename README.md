@@ -30,10 +30,10 @@ $ ruby -v
 ruby 1.9.3p545 (2014-02-24 revision 45159) [x86_64-linux]
 ```
 
-### Gem
+### Chef
 
 ```
-$ bundle install --path vendor/bundle
+$ gem install chef knife-solo
 $ chef-solo -v
 Chef: xx.xx.xx
 ```
