@@ -3,7 +3,7 @@
 ####
 
 ## Version
-default['mysql']['version']   = "5.6.15-1.el6.x86_64"
+default['mysql']['version']   = "5.6.23-1.el6.x86_64"
 
 ## File
 default['mysql']['file_name']  = "MySQL-#{default['mysql']['version']}.rpm-bundle.tar"

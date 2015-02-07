@@ -3,7 +3,7 @@
 ####
 
 # Version
-default['php']['version']    = "php-5.5.10"
+default['php']['version']    = "php-5.5.21"
 
 # File
 default['php']['file_name'] = "#{default['php']['version']}.tar.gz"

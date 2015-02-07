@@ -21,7 +21,7 @@ default['mysql']['cnf']['log_warnings']                  = 1
 default['mysql']['cnf']['general_log']                   = 0
 default['mysql']['cnf']['log-slow-admin-statements']     = 0
 default['mysql']['cnf']['log-queries-not-using-indexes'] = 0
-default['mysql']['cnf']['slow_query_log']                = 0
+default['mysql']['cnf']['slow_query_log']                = 1
 default['mysql']['cnf']['long_query_time']               = 10
 default['mysql']['cnf']['slow_query_log_file']           = "/var/lib/mysql/slow_query.log"
 
