@@ -52,12 +52,12 @@ $ knife configure
 ```ruby
 $ cat solo.rb
 
-file_cache_path           "/tmp/chef-repo"
-data_bag_path             "/root/chef-repo/data_bags"
-encrypted_data_bag_secret "/root/chef-repo/data_bag_key"
-cookbook_path             [ "/root/chef-repo/site-cookbooks",
-                            "/root/chef-repo/cookbooks" ]
-role_path                 "/root/chef-repo/roles"
+file_cache_path           "/tmp/chef"
+data_bag_path             "/root/chef/data_bags"
+encrypted_data_bag_secret "/root/chef/data_bag_key"
+cookbook_path             [ "/root/chef/site-cookbooks",
+                            "/root/chef/cookbooks" ]
+role_path                 "/root/chef/roles"
 ```
 
 ### Settings node
