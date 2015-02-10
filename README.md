@@ -6,7 +6,7 @@
 ### library
 
 ```
-$ yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel libffi-devel openssl-devel git vim tmux
+$ yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel libffi-devel openssl-devel git vim tmux ruby-devel
 $ wget http://pyyaml.org/download/libyaml/yaml-0.1.5.tar.gz
 $ tar xvzf yaml-0.1.5.tar.gz
 $ cd yaml-0.1.5
