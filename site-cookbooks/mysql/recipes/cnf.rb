@@ -13,17 +13,16 @@ template "/etc/my.cnf" do
   owner    node['mysql']['install_user']
   group    node['mysql']['install_group']
   mode     00644
-  notifies :run, 'bash[restart mysql]', :immediately
+  notifies :run, 'bash[start mysql]', :immediately
 end
 
 
 # Bashs
-bash "restart mysql" do
+bash "start mysql" do
   action :nothing
   flags  '-ex'
   user   node['mysql']['install_user']
   code   <<-EOH
-    /etc/rc.d/init.d/mysql stop
     /etc/rc.d/init.d/mysql start
   EOH
 end
