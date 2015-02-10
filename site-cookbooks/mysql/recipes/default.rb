@@ -31,13 +31,14 @@ node['mysql']['rpm'].each do |rpm|
 end
 
 
-# Bashs
-bash "restart mysql" do
-  action :nothing
-  flags  '-ex'
-  user   node['mysql']['install_user']
+# Set install db
+package "perl-Data-Dumper" do
+  action :install
+end
+bash "install db" do
+  user     node['mysql']['install_user']
+  cwd      node['mysql']['src_dir']
   code   <<-EOH
-    /etc/rc.d/init.d/mysql stop
-    /etc/rc.d/init.d/mysql start
+    mysql_install_db --datadir=/var/lib/mysql --user=#{node['mysql']['install_user']}
   EOH
 end
