@@ -15,9 +15,9 @@ end
 
 # Install MySQL
 bash "install mysql" do
-  user     node['mysql']['install_user']
-  cwd      node['mysql']['src_dir']
-  code   <<-EOH
+  user node['mysql']['install_user']
+  cwd  node['mysql']['src_dir']
+  code <<-EOH
     tar xf #{node['mysql']['file_name']}
   EOH
 end
@@ -31,14 +31,23 @@ node['mysql']['rpm'].each do |rpm|
 end
 
 
+# Modify lib user
+bash "lib user" do
+  user node['mysql']['install_user']
+  code <<-EOH
+    chown -R mysql:mysql /var/lib/mysql
+  EOH
+end
+
+
 # Set install db
 package "perl-Data-Dumper" do
   action :install
 end
 bash "install db" do
-  user     node['mysql']['install_user']
-  cwd      node['mysql']['src_dir']
-  code   <<-EOH
-    mysql_install_db --datadir=/var/lib/mysql --user=#{node['mysql']['install_user']}
+  user node['mysql']['install_user']
+  cwd  node['mysql']['src_dir']
+  code <<-EOH
+    mysql_install_db --datadir=/var/lib/mysql --user=mysql
   EOH
 end
