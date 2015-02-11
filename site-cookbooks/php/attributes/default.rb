@@ -22,6 +22,7 @@ default['php']['install_group'] = "root"
 default['php']['library']  = [
     "bison",
     "curl",
+    "curl-devel",
     "libxml2-devel"
 ]
 
