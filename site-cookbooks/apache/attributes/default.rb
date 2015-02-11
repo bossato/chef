@@ -3,10 +3,12 @@
 ####
 
 ## Version
-default['apache']['version']    = "httpd-2.4.10"
+default['apache']['main_version'] = "2.4"
+default['apache']['sub_version']  = "10"
+default['apache']['version']      = "#{default['apache']['main_version']}.#{default['apache']['sub_version']}"
 
 ## File
-default['apache']['file_name'] = "#{default['apache']['version']}.tar.gz"
+default['apache']['file_name'] = "httpd-#{default['apache']['version']}.tar.gz"
 default['apache']['remote_uri'] = "http://ftp.meisei-u.ac.jp/mirror/apache/dist//httpd/#{default['apache']['file_name']}"
 
 ## Directory

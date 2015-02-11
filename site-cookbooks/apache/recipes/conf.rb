@@ -8,12 +8,11 @@
 #
 
 # Modify conf
-template "#{node['apache']['dir']}/conf/httpd.conf" do
+template "#{node['apache']['dir']}/conf/httpd.#{node['apache']['main_version']}.conf" do
   source   "httpd.conf.erb"
   owner    node['apache']['install_user']
   group    node['apache']['install_group']
   mode     00644
-  notifies :run, 'bash[restart apache]', :immediately
 end
 
 
@@ -24,17 +23,17 @@ for include_file in node['apache']['include_files']
     owner    node['apache']['install_user']
     group    node['apache']['install_group']
     mode     00644
-    notifies :run, 'bash[restart apache]', :immediately
+    notifies :run, 'bash[start apache]', :immediately
   end
 end
 
 
 # Bashs
-bash "restart apache" do
+bash "start apache" do
   action :nothing
   flags  '-ex'
   user   node['apache']['install_user']
   code   <<-EOH
-    #{node['apache']['dir']}/bin/apachectl restart
+    #{node['apache']['dir']}/bin/apachectl start
   EOH
 end

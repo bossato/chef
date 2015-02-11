@@ -9,10 +9,8 @@
 
 # Install APR
 for library in ["apr", "apr-util"]
-  remote_file "#{node['apache']['src_dir']}#{node[library]['file_name']}" do
-    source "#{node[library]['remote_uri']}"
-    owner  node['apache']['install_user']
-    group  node['apache']['install_user']
+  cookbook_file "#{node['apache']['src_dir']}#{node[library]['file_name']}" do
+    mode 0644
   end
 
   bash "install #{library}" do
@@ -30,10 +28,8 @@ for library in ["apr", "apr-util"]
 end
 
 # Install PCRE
-remote_file "#{node['apache']['src_dir']}#{node['pcre']['file_name']}" do
-  source "#{node['pcre']['remote_uri']}"
-  owner  node['apache']['install_user']
-  group  node['apache']['install_user']
+cookbook_file "#{node['apache']['src_dir']}#{node['pcre']['file_name']}" do
+  mode 0644
 end
 
 bash "install pcre" do
