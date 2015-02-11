@@ -34,6 +34,6 @@ bash "start apache" do
   flags  '-ex'
   user   node['apache']['install_user']
   code   <<-EOH
-    #{node['apache']['dir']}/bin/apachectl restart
+    #{node['apache']['dir']}/bin/apachectl start
   EOH
 end
