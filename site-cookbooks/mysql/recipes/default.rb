@@ -38,16 +38,3 @@ bash "lib user" do
     chown -R mysql:mysql /var/lib/mysql
   EOH
 end
-
-
-# Set install db
-package "perl-Data-Dumper" do
-  action :install
-end
-bash "install db" do
-  user node['mysql']['install_user']
-  cwd  node['mysql']['src_dir']
-  code <<-EOH
-    mysql_install_db --datadir=/var/lib/mysql --user=mysql
-  EOH
-end
