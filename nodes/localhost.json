@@ -4,7 +4,7 @@
         "recipe[mysql::default]",
         "recipe[mysql::cnf]",
         "recipe[apache::default]",
-        "recipe[php]::default",
+        "recipe[php::default"],
         "recipe[apache::conf]"
     ]   
 }

@@ -40,6 +40,7 @@ default['php']['configure'] = %W{--enable-mbstring
                                  --with-libdir=lib64
                                  --with-mcrypt
                                  --with-openssl
+                                 --with-mysql
                                  --with-pdo-mysql
                                  --with-xmlrpc
                                  --with-zlib}

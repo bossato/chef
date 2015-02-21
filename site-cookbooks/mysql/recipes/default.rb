@@ -38,3 +38,17 @@ bash "lib user" do
     chown -R mysql:mysql /var/lib/mysql
   EOH
 end
+
+
+# Add db datadir
+%w{perl-Data-Dumper}.each do |pkg|
+  package pkg do
+    action :install
+  end
+end
+bash "add db datadir" do
+  user node['mysql']['install_user']
+  code <<-EOH
+    mysql_install_db --datadir=/var/lib/mysql --user=mysql
+  EOH
+end

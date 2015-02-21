@@ -117,7 +117,9 @@ DocumentRoot <%= node['apache']['document_root'] %>
 #
 <Directory />
     AllowOverride none
-    Require all denied
+    Options None
+    Order allow,deny
+    Allow from all
 </Directory>
 
 #
@@ -155,7 +157,8 @@ DocumentRoot <%= node['apache']['document_root'] %>
     #
     # Controls who can get stuff from this server.
     #
-    Require all granted
+    Order deny,allow
+    Allow from all
 
 </Directory>
 

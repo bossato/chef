@@ -8,8 +8,8 @@
 #
 
 # Modify conf
-template "#{node['apache']['dir']}/conf/httpd.#{node['apache']['main_version']}.conf" do
-  source   "httpd.conf.erb"
+template "#{node['apache']['dir']}/conf/httpd.conf" do
+  source   "httpd.conf.#{node['apache']['main_version']}.erb"
   owner    node['apache']['install_user']
   group    node['apache']['install_group']
   mode     00644
