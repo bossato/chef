@@ -50,8 +50,6 @@ innodb_log_file_size        = <%= node['mysql']['cnf']['innodb_log_file_size'] %
 innodb_log_buffer_size      = <%= node['mysql']['cnf']['innodb_log_buffer_size'] %>
 innodb_force_recovery       = <%= node['mysql']['cnf']['innodb_force_recovery'] %>
 
-sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES 
-
 
 [mysql]
 

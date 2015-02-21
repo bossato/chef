@@ -22,10 +22,9 @@ bash "install apache" do
   user     node['apache']['install_user']
   cwd      node['apache']['src_dir']
   not_if   "ls #{node['apache']['dir']}"
-  notifies :run, 'bash[start apache]', :immediately
   code   <<-EOH
     tar xzf #{node['apache']['file_name']}
-    cd #{node['apache']['version']}
+    cd httpd-#{node['apache']['version']}
     ./configure #{node['apache']['configure']}
     make
     make install
